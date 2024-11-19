@@ -1,0 +1,107 @@
+prtaice question 1
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+void print(int arr[],int n)
+{
+    if(n==0)
+    {
+        cout<<arr[0]<<endl;
+        return ;
+    }
+    cout<<arr[n]<<" ";
+    print(arr,n-1);
+}
+    
+
+int main() {
+    int arr[]={2,3,4,5,7};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    print(arr,n-1);
+
+    return 0;
+}
+
+pratic questionn 2
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int  print(int arr[],int n,int num)
+{
+    if(n<0)
+    {
+        return -1;
+    }
+    if(arr[n]==num)
+    {
+        return n;
+    }
+    return print(arr,n-1,num);
+}
+    
+
+int main() {
+    int arr[]={2,3,4,5,7};
+    int n=sizeof(arr)/sizeof(arr[0]);
+   cout<<print(arr,n-1,3);
+
+    return 0;
+}
+
+
+
+prtaice question 4
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int triangularSum(vector<int>& arr)
+{
+    int n = arr.size();  // Get the current size of the array
+    
+    if (n == 1)
+    {
+        return arr[0]%10; // If there's only one element left, return it as the result
+    }
+    
+    // Modify the array: each element arr[i] is incremented by arr[i + 1]
+    for (int i = 0; i < n - 1; i++)
+    {
+        arr[i] += arr[i + 1];
+    }
+
+    // Remove the last element after the update
+    arr.pop_back();
+    
+    // Recursively call the function with the reduced vector
+    return triangularSum(arr);
+}
+
+int main() {
+    vector<int> arr = {1, 2, 3, 4, 5};
+    cout << triangularSum(arr);  // Call the function
+    return 0;
+}
+prtaice 4 leetcode
+class Solution {
+public:
+    string countAndSay(int n) {
+        if(n == 1) {
+return "1";
+}
+string ans="";
+string smallans=countAndSay(n-1);
+for(int i=0;i<smallans.size();){
+    int j=i+1;
+    int count=1;
+    while(j<smallans.size() && smallans[i]==smallans[j])
+    {
+        j++;
+        count++;
+    }
+    ans=ans+to_string(count)+smallans[i];
+    i=j;
+}
+return ans;
+    }
+};
