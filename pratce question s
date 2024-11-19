@@ -1,0 +1,61 @@
+ 1 pratice question 
+ // Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int   add(int a,int b,int sum)
+{
+    if(b<a){
+
+        return sum;
+    }
+  if(b%2!=0){
+      sum+=b;
+  }
+  return add(a,b-1,sum);
+}
+
+int main() {
+    cout<<add(5,19,0);
+
+    return 0;
+}
+
+
+2nd pratice question 
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int path(int n)
+{
+    if(n==1) return 1;
+    if(n==2) return 2;
+    if(n==3) return 3;
+    return path(n-1)+path(n-2)+path(n-3);
+}
+
+int main() {
+    cout<<path(5);
+
+    return 0;
+}  
+prtaice question 3
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+bool  path(int n)
+{
+    if(n==1){
+        return false;
+    }
+    if(n==2) {
+        return true;
+    }
+   return  path(n/2);
+}
+    
+
+int main() {
+    cout<<path(24);
+
+    return 0;
+}
