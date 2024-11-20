@@ -1,0 +1,56 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+void removechar(string ans,string orig,int indx)
+{
+    if(orig.length()==indx)
+    {
+        cout<<ans<<endl;
+        return;
+    }
+    char ch=orig[indx];
+    if(ch=='a') {
+        removechar(ans,orig,indx+1);
+    }
+    else
+    {
+         removechar(ans+ch,orig,indx+1);
+    }
+}
+
+int main() {
+   string str="raghav garg";
+   removechar("",str,0);
+    return 0;
+}
+
+
+
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void remvele(vector<int>& v, int arr[], int indx, int size) {
+    if(indx == size) {
+        for(int i = 0; i < v.size(); i++) {
+            cout << v[i] << " ";
+        }
+        return;
+    }
+    int k = arr[indx];
+    if(k != 4) { // If the element is not 4, add it to the vector
+        v.push_back(k);
+    }
+    remvele(v, arr, indx + 1, size); // Move to the next index
+}
+
+int main() {
+    int arr[] = {2, 3, 4, 5, 6, 7, 8};
+    int size = sizeof(arr) / sizeof(arr[0]); // Find the size of the array
+    vector<int> v;
+    remvele(v, arr, 0, size); // Start recursion from index 0
+
+    return 0;
+}
