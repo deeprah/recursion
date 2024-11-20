@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+using namespace std;
+void print(int arr[],int n,int indx,int k)
+{
+    if(indx==n)
+    {
+        cout<<k;
+        return;
+    }
+    if(arr[indx]>k)
+    {
+        k=arr[indx];
+    }
+    
+    print(arr,n,indx+1,k);
+}
+    
+
+int main() {
+    int arr[]={2,3,4,5,7,11,23,4,5};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int k=INT_MIN;
+    print(arr,n,0,k);
+
+    return 0;
+}
+#include <bits/stdc++.h>
+using namespace std;
+int print(int arr[],int n,int indx,int k)
+{
+    if(indx==n)
+    {
+       return k;
+    }
+    if(arr[indx]>k)
+    {
+        k=arr[indx];
+    }
+    
+    return print(arr,n,indx+1,k);
+}
+int print2(int arr[],int n,int indx)
+{
+    if(n==indx) return INT_MIN;
+    return max(arr[indx],print2(arr,n,indx+1));
+}
+    
+
+int main() {
+    int arr[]={2,3,4,5,7,11,23,4,5};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int k=INT_MIN;
+    cout<<print(arr,n,0,k);
+    cout<<endl;
+    cout<<print2(arr,n,0);
+
+    return 0;
+}
