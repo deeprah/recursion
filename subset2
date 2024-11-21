@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+using namespace std;
+void print2(int arr[],int indx,int size,vector<int> ans,bool flag,vector<vector<int>>& finalans)
+{
+    if(indx==size)
+    {
+      finalans.push_back(ans);
+        return;
+    }
+     int k=arr[indx];
+    if(size-indx==1)
+{
+    if(flag==true) 
+    { 
+        ans.push_back(k);
+        print2(arr,indx+1,size,ans,true,finalans);
+}
+  print2(arr,indx+1,size,ans,true,finalans);
+  return;
+}
+    int val=arr[indx+1];
+   if(k==val)
+   {
+       if(flag==true) 
+    { 
+        ans.push_back(k);
+        print2(arr,indx+1,size,ans,true,finalans);
+}
+  print2(arr,indx+1,size,ans,false,finalans);
+   }
+   else
+   {
+       if(flag==true) 
+    { 
+        ans.push_back(k);
+        print2(arr,indx+1,size,ans,true,finalans);
+}
+  print2(arr,indx+1,size,ans,true,finalans);
+   }
+}
+int main() {
+int arr[]={1,2,3};
+int n=sizeof(arr)/sizeof(arr[0]);
+vector<int> v;
+vector<vector<int>> finalans;
+print2(arr,0,n,v,true,finalans);
+// Print the subsets
+    for (int i = 0; i < finalans.size(); i++) {
+        for (int j = 0; j < finalans[i].size(); j++) {
+            cout << finalans[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
