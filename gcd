@@ -1,0 +1,28 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+int gcd(int a,int b)
+{
+    for(int i=min(a,b);i>=2;i--)
+    {
+        if(a%i==0 && b%i==0)
+        return i;
+    }
+    return 1;
+}
+int gcd2(int a,int b)
+{
+    if(a==0) return b;
+    else return gcd2(b%a,a);
+}
+
+int main() {
+  int a=35;
+  int b=45;
+   cout<<gcd(a,b);
+   cout<<endl;
+   cout<<gcd2(a,b);
+   return 0;
+}
+
+// time complexity of gcd(a,b) is o(log(a+b);
