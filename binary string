@@ -1,0 +1,22 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+void print(string s,int n){
+    if(n==0){
+        cout<<s<<endl;
+        return;
+    }
+    print(s+'0',n-1);
+    if(s.empty() || s.back()=='0')
+    {
+        print(s+'1',n-1);
+    }
+}
+int main() {
+    int n;
+    cout<<"enter the value of n";
+    cin>>n;
+  print("",n);
+
+    return 0;
+}
